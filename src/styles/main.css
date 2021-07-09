@@ -1,0 +1,77 @@
+body {
+    background: #fff;
+    font-family: "Karla", sans-serif;
+    font-size: 14px;
+    color: #003049;
+    line-height: 1.2;
+}
+
+/* CertList */
+
+#cert-list > table {
+    text-align: left;
+    width: 100%;
+    background-color: lightgray;
+    margin: 16px 0;
+}
+
+#cert-list thead {
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+#cert-list tr {
+    border-bottom: solid white 1px;
+}
+
+#cert-list th,
+#cert-list td {
+    padding: 16px;
+}
+
+#cert-list > #controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+}
+
+#cert-list > #pagination {
+    display: flex;
+    justify-content: center;
+}
+
+/* Login */
+
+#login-container {
+    display: flex;
+    justify-content: center;
+}
+
+#login {
+    margin-top: 20vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+#login > h1 {
+    font-size: 20px;
+    margin-bottom: 32px;
+}
+
+#login > .ui.input {
+    display: block;
+    margin-bottom: 1em;
+}
+
+#login > .ui.button {
+    margin-bottom: 1em;
+}
+
+.error {
+    color: red;
+    font-style: italic;
+    font-size: 0.9em;
+}
