@@ -85,7 +85,7 @@ class CertList extends React.Component {
         })
             .then(resp => {
                 if (resp.status !== 200)
-                    throw `Unexpected response status: ${resp.status}`;
+                    throw `Unexpected response status: ${resp.status} ${resp.statusText}`;
                 return resp;
             })
             .then(resp => {
@@ -95,7 +95,7 @@ class CertList extends React.Component {
                 return resp.json();
             })
             .then(data => this.setState({ certs: data }))
-            .catch(e => console.error(e));
+            .catch(e => this.props.setError(e));
     }
 
     modify(revoke) {
@@ -111,13 +111,13 @@ class CertList extends React.Component {
             })
                 .then(resp => {
                     if (resp.status !== 200)
-                        throw `Unexpected response status: ${resp.status}`;
+                        throw `Unexpected response status: ${resp.status} ${resp.statusText}`;
                     return resp;
                 })
                 .then(resp => resp.json())
                 .then(data => console.log(data))
                 .then(this.getCertsData)
-                .catch(e => console.error(e));
+                .catch(e => this.props.setError(e));
         });
         this.setState({ checked: new Set() });
     }

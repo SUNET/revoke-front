@@ -18,7 +18,8 @@ class Login extends React.Component {
     }
 
     static propTypes = {
-        setToken: PropTypes.func.isRequired
+        setToken: PropTypes.func.isRequired,
+        setError: PropTypes.func.isRequired
     };
 
     // NOTE: btoa() limits email, password to ASCII
@@ -28,12 +29,20 @@ class Login extends React.Component {
             method: "POST",
             headers: { Authorization: "Basic " + btoa(email + ":" + password) }
         })
+            .then(resp => {
+                if (resp.status !== 200) throw resp;
+                return resp;
+            })
             .then(resp => resp.json())
             .then(data => {
                 this.props.setToken(data.access_token);
             })
-            .catch(_ => {
-                this.setState({ error: true });
+            .catch(resp => {
+                if (resp.status === 401) this.setState({ error: true });
+                else
+                    this.props.setError(
+                        `Unexpected response status: ${resp.status} ${resp.statusText}`
+                    );
             });
     }
 

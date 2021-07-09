@@ -75,3 +75,14 @@ body {
     font-style: italic;
     font-size: 0.9em;
 }
+
+/* Error */
+
+#error-container {
+    display: flex;
+    justify-content: center;
+}
+
+#error-container > .ui.message {
+    margin-top: 20vh;
+}
