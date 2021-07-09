@@ -29,8 +29,9 @@ class CertList extends React.Component {
     }
 
     static propTypes = {
-        token: PropTypes.string.isRequired,
-        clearToken: PropTypes.func.isRequired
+        clearToken: PropTypes.func.isRequired,
+        setError: PropTypes.func.isRequired,
+        token: PropTypes.string.isRequired
     };
 
     componentDidMount() {

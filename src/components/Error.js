@@ -1,7 +1,14 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { Button, Message } from "semantic-ui-react";
 
 class Error extends React.Component {
+    static propTypes = {
+        clearError: PropTypes.func.isRequired,
+        clearToken: PropTypes.func.isRequired,
+        error: PropTypes.string.isRequired
+    };
+
     render() {
         return (
             <div id="error-container">
