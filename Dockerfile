@@ -7,6 +7,7 @@ RUN npm install
 
 ARG BACK_URL
 ARG JWT_URL
+ARG PER_PAGE
 
 COPY . .
 RUN npm run build
