@@ -6,6 +6,7 @@ COPY package*.json ./
 RUN npm install
 
 ARG BACK_URL
+ARG JWT_URL
 
 COPY . .
 RUN npm run build
