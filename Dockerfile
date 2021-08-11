@@ -5,6 +5,8 @@ WORKDIR /usr/src/app
 COPY package*.json ./
 RUN npm install
 
+ARG BACK_URL
+
 COPY . .
 RUN npm run build
 
