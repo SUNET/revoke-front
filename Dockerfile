@@ -9,11 +9,11 @@ ARG BACK_URL
 ARG JWT_URL
 ARG PER_PAGE
 
-COPY . .
+COPY . ./
 RUN npm run build
 
 FROM nginx:1.21
 WORKDIR /usr/share/nginx/html
-COPY --from=build /usr/src/app/dist .
+COPY --from=build /usr/src/app/dist ./
 
 EXPOSE 80
