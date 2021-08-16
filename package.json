@@ -5,7 +5,7 @@
     "main": "src/index.js",
     "scripts": {
         "start": "parcel --no-hmr --port 8000 src/index.html",
-        "build": "parcel build src/index.html"
+        "build": "parcel build src/index.html src/inject.js"
     },
     "keywords": [],
     "author": "",

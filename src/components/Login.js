@@ -24,7 +24,7 @@ class Login extends React.Component {
 
     // NOTE: btoa() limits email, password to ASCII
     login(email, password) {
-        const url = process.env.JWT_URL + "/api/v1.0/auth";
+        const url = window.injectedEnv.JWT_URL + "/api/v1.0/auth";
         fetch(url, {
             method: "POST",
             headers: { Authorization: "Basic " + btoa(email + ":" + password) }

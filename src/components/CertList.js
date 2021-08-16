@@ -47,7 +47,7 @@ class CertList extends React.Component {
     }
 
     totalPages() {
-        return Math.ceil(this.state.totalPages / process.env.PER_PAGE);
+        return Math.ceil(this.state.totalPages / window.injectedEnv.PER_PAGE);
     }
 
     //
@@ -69,7 +69,7 @@ class CertList extends React.Component {
             return (
                 "?" +
                 [
-                    `per_page=${process.env.PER_PAGE}`,
+                    `per_page=${window.injectedEnv.PER_PAGE}`,
                     `page=${this.state.page}`,
                     filterString()
                 ]
@@ -78,7 +78,7 @@ class CertList extends React.Component {
             );
         };
 
-        fetch(`${process.env.BACK_URL}/api/v0/auth${qs()}`, {
+        fetch(`${window.injectedEnv.BACK_URL}/api/v0/auth${qs()}`, {
             method: "GET",
             headers: {
                 Authorization: `Bearer ${this.props.token}`
@@ -101,7 +101,7 @@ class CertList extends React.Component {
 
     modify(revoke) {
         this.state.checked.forEach(serial => {
-            fetch(`${process.env.BACK_URL}/api/v0/auth/${serial}`, {
+            fetch(`${window.injectedEnv.BACK_URL}/api/v0/auth/${serial}`, {
                 method: "PUT",
                 headers: {
                     Authorization: `Bearer ${this.props.token}`
